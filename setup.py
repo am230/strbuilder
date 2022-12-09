@@ -3,9 +3,6 @@ from setuptools import setup
 with open('README.md', mode='r', encoding='utf-8') as f:
     long_description = f.read()
 
-with open('requirements.txt', mode='r', encoding='utf-8') as f:
-    requires = f.readlines()
-
 author = 'am230'
 name = 'strbuilder'
 
@@ -21,6 +18,5 @@ setup(
     author=author,
     author_email="am.230@outlook.jp",
     py_modules=['py2js'],
-    platforms="any",
-    requires=requires
+    platforms="any"
 )

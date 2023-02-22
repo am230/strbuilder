@@ -8,7 +8,7 @@ name = 'strbuilder'
 
 setup(
     name=name,
-    version="1.0.3",
+    version="1.0.4",
     keywords=("builder"),
     description="A simple string builder",
     long_description=long_description,

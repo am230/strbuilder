@@ -3,14 +3,14 @@
 ## sample
 
 ```python
-from strbuilder import BaseBuilder, SurroundBuilder
+from strbuilder import Builder, SurroundBuilder
 
 condition = False
 
 print(
-    BaseBuilder('base', separator='\n')
+    Builder('base', separator='\n')
     .write('header')
-    .write(BaseBuilder(separator=', ')
+    .write(Builder(separator=', ')
         .write('aaa')
         .write_if(condition, 'bbb')
         .write_if(condition, 'ccc', or_else='ddd'))

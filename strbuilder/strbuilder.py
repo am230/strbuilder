@@ -37,6 +37,15 @@ class IWritable(list):
 Writable = t.Union[str, IWritable, t.Any]
 
 
+class Builder(IWritable):
+    def __init__(self, *base: str, separator: t.Optional[str] = ' ') -> None:
+        self.write(base)
+        self.separator: str = separator
+
+    def build(self):
+        return self.separator.join(self)
+
+
 class SurroundBuilder(IWritable):
     def __init__(self, *base: str, surround: t.Optional[t.List[str]] = '""', separator: t.Optional[t.Union[str, t.List]] = '') -> None:
         self.surround = surround
@@ -45,12 +54,3 @@ class SurroundBuilder(IWritable):
 
     def build(self) -> str:
         return f'{self.surround[0]}{self.separator.join(self)}{self.surround[1]}'
-
-
-class BaseBuilder(IWritable):
-    def __init__(self, *base: str, separator: t.Optional[str] = ' ') -> None:
-        self.write(base)
-        self.separator: str = separator
-
-    def build(self):
-        return self.separator.join(self)

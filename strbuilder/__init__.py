@@ -1,6 +1,5 @@
 from .strbuilder import (
-    BaseBuilder,
+    Builder,
     SurroundBuilder,
-    IWritable,
     Writable
 )

@@ -19,7 +19,7 @@ class Builder(list):
 
         if value_type == str:
             self.append(value)
-        elif value_type == Builder:
+        elif issubclass(value_type, Builder):
             self.write(value.build())
         elif value_type in (list, tuple, map, filter, set, types.GeneratorType):
             self.extend(value)
@@ -45,4 +45,4 @@ class SurroundBuilder(Builder):
         self.write(base)
 
     def build(self) -> str:
-        return f'{self.surround[0]}{self.separator.join(self)}{self.surround[1]}'
+        return f'{self.surround[0]}{super().build()}{self.surround[1]}'

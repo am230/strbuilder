@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
 
 with open('README.md', mode='r', encoding='utf-8') as f:
-    long_description = f.read()
+    long_description = '\n'.join(map(str.strip, f.readlines()))
 
 author = 'am230'
 name = 'strbuilder'
 
 setup(
     name=name,
-    version="1.1.1",
+    version="1.1.2",
     keywords=("builder"),
     description="A simple string builder",
     long_description=long_description,
